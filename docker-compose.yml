@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  # Servidor UNAP (coordinador)
+  unap-server:
+    build: .
+    container_name: unap-server
+    ports:
+      - "5000:5000"
+    environment:
+      - PROCESS_ID=0
+      - PROCESS_NAME=UNAP-Server
+    networks:
+      - lamport-network
+    command: python server.py
+
+  # Cliente 1
+  client1:
+    build: .
+    container_name: client1
+    ports:
+      - "5001:5001"
+    environment:
+      - PROCESS_ID=1
+      - PROCESS_NAME=Cliente-1
+      - SERVER_URL=http://unap-server:5000
+    networks:
+      - lamport-network
+    depends_on:
+      - unap-server
+    command: python client.py
+
+  # Cliente 2
+  client2:
+    build: .
+    container_name: client2
+    ports:
+      - "5002:5002"
+    environment:
+      - PROCESS_ID=2
+      - PROCESS_NAME=Cliente-2
+      - SERVER_URL=http://unap-server:5000
+    networks:
+      - lamport-network
+    depends_on:
+      - unap-server
+    command: python client.py
+
+  # Cliente 3
+  client3:
+    build: .
+    container_name: client3
+    ports:
+      - "5003:5003"
+    environment:
+      - PROCESS_ID=3
+      - PROCESS_NAME=Cliente-3
+      - SERVER_URL=http://unap-server:5000
+    networks:
+      - lamport-network
+    depends_on:
+      - unap-server
+    command: python client.py
+
+networks:
+  lamport-network:
+    driver: bridge 

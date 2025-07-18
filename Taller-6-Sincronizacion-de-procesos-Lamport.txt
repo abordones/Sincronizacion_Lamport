@@ -1,0 +1,14 @@
+Trabajo Práctico Nro 6 Sistemas Distribuidos
+Relojes Lógicos - Algoritmo de Lamport
+
+Experiencia: Utilizar el sistema cliente servidor con datos serializados para sincronizar procesos.
+Objetivo: Implementar el algoritmo de sincronización aplicando el algoritmo de Lamport.
+Instrucciones:
+1.- Considerar 3 procesos en 3 computadores distintos: un servidor UNAP y 3 clientes.
+2.- Cada Proceso mantendrá un Reloj Lógico L,
+3.- Utilice el algoritmo de Lamport para realizar la marcar de tiempo en los mensajes
+4.- En la pantalla de cada procesos debe aparecer el valor del reloj Lógico.
+5.- Experimente haciendo que cada proceso realice eventos internos, eventos de envío y eventos de recepción de mensaje, actualizando los relojes lógicos de cada proceso.
+
+
+Link sugerido: https://www.indetectables.net/viewtopic.php?t=50528
